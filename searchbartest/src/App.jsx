@@ -1,18 +1,16 @@
-import { useState } from "react";
-import "./App.css";
-import { NewSearchBar } from "./components/NewSearchbar";
-import { SearchResults } from "./components/SearchResults";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+import GamePage from "./Pages/GamePage";
+
 
 function App() {
-    const [results, setResults] = useState([]);
-
     return (
-        <div className="App">
-            <div className="search-bar-container">
-                <NewSearchBar setResults={setResults} />
-                <SearchResults results={results} />
-            </div>
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/game-page" element={<GamePage />} />
+            </Routes>
+        </Router>
     );
 }
 
